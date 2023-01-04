@@ -29,7 +29,7 @@ void yyerror(char *);
 
 %%
 Start:		
-		|CompUnit	{showAst($1,0);}
+		|CompUnit	{root=$1;showAst($1,0);}
 		;
 		
 PrimaryExp:	Y_LPAR AddExp Y_RPAR	{$$ = $2;}
@@ -38,7 +38,7 @@ PrimaryExp:	Y_LPAR AddExp Y_RPAR	{$$ = $2;}
 		|num_FLOAT	{$$ = newFloat($1);}
 		;
 
-Type:		Y_INT	{$$ = "int";}
+Type:	Y_INT	{$$ = "int";}
 		|Y_FLOAT	{$$ = "float";}
 		|Y_VOID		{$$ = "void";}
 		;

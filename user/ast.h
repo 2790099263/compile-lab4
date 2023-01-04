@@ -1,10 +1,13 @@
 #define _AST_H
 #ifdef	_AST_H
+#pragma once
 #include "node_type.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #define funum 114514
+
+
 typedef struct _ast ast;
 typedef struct _ast *past;
 
@@ -12,6 +15,7 @@ struct _ast{
 	int 		ivalue;
 	float 		fvalue;
 	char* 		svalue;
+	int			regnum;			//register number
 	node_type 	nodeType;
 	past 		left;
 	past 		right;
@@ -33,7 +37,6 @@ past newString(char* value);
 past newFloat(float value);
 past newInteger(int value);
 past newAstNode();
-void showAst(past node, int nest);
 past doCompUnit(past a,past b);
 past doConstDecl(char* s,past def);
 past doConstDefs(past a,past b);
@@ -57,4 +60,6 @@ past doif(past a,past b,past c);
 past dobreak(void);
 past docontinue(void);
 past doreturn(past a);
+void showAst(past node, int nest);
+
 #endif

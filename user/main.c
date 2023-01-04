@@ -1,14 +1,15 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include "ast.h"
+#include "genllvm.h"
 extern FILE* yyin;
 extern int yyparse(void);
-extern void init(void);
 extern past root;
 void yyerror(char *s)
 {
 	printf("%s\n", s);
 }
+char buffer[5000];
 
 int main(int argc,char* argv[])
 {
@@ -23,5 +24,8 @@ int main(int argc,char* argv[])
 		exit(0);
 	}
 	yyparse();
+	genRoot(root,buffer,0);
+	printf("\n");
+	printf("%s\n",buffer);
 	return 0;
 }

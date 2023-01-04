@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "ast.h"
-#include "node_type.h"
 
 past root;
 enum yytokentype {
