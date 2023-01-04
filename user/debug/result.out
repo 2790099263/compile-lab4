@@ -5,25 +5,24 @@ FUNCTION_DECL int main
         INTEGER_LITERAL 0
       VAR_DECL b int
         INTEGER_LITERAL 1
-    IF_STMT
-      BINARY_OPERATOR >
+    BINARY_OPERATOR =
+      DECL_REF_EXPR a
+      BINARY_OPERATOR +
         DECL_REF_EXPR a
-        INTEGER_LITERAL 0
+        DECL_REF_EXPR b
+    IF_STMT
+      BINARY_OPERATOR ||
+        DECL_REF_EXPR a
+        DECL_REF_EXPR b
       BINARY_OPERATOR =
         DECL_REF_EXPR b
         BINARY_OPERATOR +
           DECL_REF_EXPR b
           INTEGER_LITERAL 1
-    DECL_STMT
-      VAR_DECL a int
-        INIT_LIST_EXPR
-          INTEGER_LITERAL 0
-          INTEGER_LITERAL 1
-          INTEGER_LITERAL 1
-          INTEGER_LITERAL 2
-          INTEGER_LITERAL 3
     WHILE_STMT
-      INTEGER_LITERAL 1
+      BINARY_OPERATOR +
+        DECL_REF_EXPR a
+        DECL_REF_EXPR b
       COMPOUND_STMT
         BINARY_OPERATOR =
           DECL_REF_EXPR b
