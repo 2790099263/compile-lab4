@@ -289,8 +289,8 @@ past doVarDecl(char* s,past a,past b){
 	tmp->svalue=malloc(2);
 	strcpy(tmp->svalue," ");
 	if(b==NULL){
-		strcat(a->svalue," ");
-		strcat(a->svalue,s);
+		// strcat(a->svalue," ");
+		// strcat(a->svalue,s);
 		tmp->left = a;
 		return tmp;
 	}
@@ -298,8 +298,8 @@ past doVarDecl(char* s,past a,past b){
 		a->next = b;
 		past p = a;
 		while(p!=NULL){
-			strcat(p->svalue," ");
-			strcat(p->svalue,s);
+			// strcat(p->svalue," ");
+			// strcat(p->svalue,s);
 			p=p->next;
 		}
 		tmp->left = a;

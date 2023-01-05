@@ -16,6 +16,7 @@ struct _ast{
 	float 		fvalue;
 	char* 		svalue;
 	int			regnum;			//register number
+	int 		flojud;			//judge if is float
 	node_type 	nodeType;
 	past 		left;
 	past 		right;
