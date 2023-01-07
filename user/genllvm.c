@@ -76,6 +76,19 @@ void genRoot(past node, char *buffer,int nest) {
 	
 	puts("");
 	genRoot(node->left, buffer,nest + 1);
+    if(node ->nodeType == IF_STMT){
+        int now_label = reg_num;
+        int head_label = ++reg_num;
+        int nxt_label = ++reg_num;
+        sprintf(buffer+strlen(buffer),"br i1 %%%d, label %%%d, label %%%d\n"
+            ,now_label,head_label,nxt_label);
+        sprintf("%d:\n",head_label);
+        genRoot(node->right,buffer,nest);
+        // if(node->right->next!=NULL){
+        //     sprintf(buffer,"");
+        // }
+        return ;
+    }
 	genRoot(node->right,buffer,nest + 1);
 	genRoot(node->next,buffer,nest);
     genRootDot(node,buffer);
