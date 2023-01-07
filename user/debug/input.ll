@@ -5,20 +5,31 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: noinline nounwind optnone uwtable
 define dso_local i32 @main() #0 {
-  %1 = alloca float, align 4
-  %2 = alloca float, align 4
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  store float 0.000000e+00, ptr %1, align 4
-  store float 1.000000e+00, ptr %2, align 4
+  store i32 0, ptr %1, align 4
+  store i32 1, ptr %2, align 4
   store i32 2, ptr %3, align 4
-  %4 = load float, ptr %1, align 4
-  %5 = load float, ptr %2, align 4
-  %6 = fmul float %4, %5
+  %4 = load i32, ptr %2, align 4
+  %5 = icmp ne i32 %4, 0
+  br i1 %5, label %6, label %13
+
+6:                                                ; preds = %0
   %7 = load i32, ptr %3, align 4
-  %8 = sitofp i32 %7 to float
-  %9 = fdiv float %6, %8
-  store float %9, ptr %1, align 4
-  ret i32 0
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %6
+  %10 = load i32, ptr %2, align 4
+  %11 = load i32, ptr %3, align 4
+  %12 = add nsw i32 %10, %11
+  store i32 %12, ptr %2, align 4
+  br label %13
+
+13:                                               ; preds = %9, %6, %0
+  %14 = load i32, ptr %1, align 4
+  ret i32 %14
 }
 
 attributes #0 = { noinline nounwind optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

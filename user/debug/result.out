@@ -1,16 +1,57 @@
 FUNCTION_DECL int main
   COMPOUND_STMT
     DECL_STMT
-      VAR_DECL a int
-        INTEGER_LITERAL 0
-      VAR_DECL b int
+      VAR_DECL a
         INTEGER_LITERAL 1
-      VAR_DECL c int
+      VAR_DECL b
         INTEGER_LITERAL 2
-    BINARY_OPERATOR =
-      DECL_REF_EXPR a
-      BINARY_OPERATOR +
-        BINARY_OPERATOR +
+    IF_STMT
+      BINARY_OPERATOR &&
+        DECL_REF_EXPR a
+        DECL_REF_EXPR b
+      COMPOUND_STMT
+        BINARY_OPERATOR =
           DECL_REF_EXPR a
-          DECL_REF_EXPR b
-        DECL_REF_EXPR c
+          BINARY_OPERATOR +
+            DECL_REF_EXPR a
+            DECL_REF_EXPR b
+
+  
+    
+      
+        
+INTEGER_LITERAL 1      
+        
+INTEGER_LITERAL 2
+genDecl  b 98
+VAR_DECL b
+genDecl  a 97
+VAR_DECL a    
+      
+        
+
+hash : 97
+DECL_REF_EXPR a        
+
+hash : 98
+DECL_REF_EXPR bBINARY_OPERATOR &&      
+        
+          
+
+hash : 97
+DECL_REF_EXPR a          
+            
+
+hash : 97
+DECL_REF_EXPR a            
+
+hash : 98
+DECL_REF_EXPR bBINARY_OPERATOR +BINARY_OPERATOR =COMPOUND_STMTIF_STMTDECL_STMTCOMPOUND_STMTFUNCTION_DECL int main
+%1 = alloca i32, align4
+store i32 2,ptr %1, align4
+%2 = alloca i32, align4
+store i32 1,ptr %2, align4
+%3 = load i32, ptr %2, align 4
+%4 = load i32, ptr %1, align 4
+%5 = add nsw i32 %3, %4
+
