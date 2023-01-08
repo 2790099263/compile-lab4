@@ -2,8 +2,8 @@
 
 CFLAGS = -O0 -g
 
-all: lrparser.tab.c lex.yy.c ast.c main.c genllvm.c
-	gcc -o lrparser $(CFLAGS) lrparser.tab.c lex.yy.c ast.c main.c genllvm.c
+all: lrparser.tab.c lex.yy.c ast.c main.c genllvm.c dag.c
+	gcc -o lrparser $(CFLAGS) lrparser.tab.c lex.yy.c ast.c main.c genllvm.c dag.c
 
 
 lrparser.tab.c : lrparser.y

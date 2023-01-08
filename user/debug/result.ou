@@ -13,3 +13,4 @@ FUNCTION_DECL int main
       DECL_REF_EXPR a
       COMPOUND_STMT
 
+in1  0x7ffcf3187820

@@ -1,9 +1,7 @@
 int main(){
-    int a=1,b=2,c=3;
+    int a=1,b;
+    b=a+b;
     if(a){
-        a=a+b;
-    }
-    else {
-        b=b+c;
+        
     }
 }

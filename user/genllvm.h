@@ -54,4 +54,8 @@ void genRootDot(past cur,char *buffer);
 void genRoot(past node,char *buffer,int nest);
 void genArithmeticExpr(past node,char *result);
 void genVarDecl(past node,char *result);
+void genRefExpr(past node , char *result);
+void genRootFirst(past cur,char *buffer);
+void genRootSecond(past cur,char *buffer,int *in1, int *in2);
+void genRootThird(past cur,char *buffer,int *in2);
 #endif

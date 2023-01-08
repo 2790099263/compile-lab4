@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "ast.h"
 #include "genllvm.h"
+#include "dag.h"
 extern FILE* yyin;
 extern int yyparse(void);
 extern past root;
@@ -24,6 +25,7 @@ int main(int argc,char* argv[])
 		exit(0);
 	}
 	yyparse();
+	dagInit();
 	genRoot(root,buffer,0);
 	printf("\n");
 	printf("%s\n",buffer);
